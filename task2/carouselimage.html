@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Carousel-Image</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+
+		.whole{
+			max-width: 1000px;
+			position: relative;
+			margin: auto;
+		}
+
+		.carousel{
+			display: none;
+		}
+
+		.next {
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			width: auto;
+			margin-top: -22px;
+			padding: 16px;
+			color: white;
+			font-weight: bold;
+			font-size: 18px;
+			transition: 0.6s ease;
+			border-radius: 0 3px 3px 0;
+			user-select: none;
+		}
+
+		.fade {
+			-webkit-animation-name: fade;
+			-webkit-animation-duration: 1.5s;
+			animation-name: fade;
+			animation-duration: 1.5s;
+		}
+
+		@-webkit-keyframes fade {
+			from {opacity: .4}
+			to {opacity: 1}
+		}
+
+		@keyframes fade {
+			from {opacity: .4}
+			to {opacity: 1}
+		}
+
+	</style>
+</head>
+<body>
+
+<div class = "whole">
+
+	<div class = "carousel">
+		<img src="image1.jpg" style="width:100%">
+	</div>
+
+	<div class = "carousel">
+		<img src="image2.jpg" style="width:100%">
+	</div>
+
+	<div class = "carousel">
+		<img src="image3.jpg" style="width:100%">
+	</div>
+
+	<script type="text/javascript">
+		
+		var slideIndex = 0;
+		showSlides();
+
+		function showSlides() {
+			var i;
+			var slides = document.getElementsByClassName("carousel");
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			slideIndex++;
+			if (slideIndex > slides.length) {slideIndex = 1}
+			slides[slideIndex-1].style.display = "block";
+			setTimeout(showSlides, 3000); // Change image every 2 seconds
+		}
+
+	</script>
+
+</div>
+
+
+
+</body>
+</html>
