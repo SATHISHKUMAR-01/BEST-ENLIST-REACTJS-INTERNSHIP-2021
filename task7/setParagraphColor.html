@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title> Set Paragraph Color</title>
+ 	<style type="text/css">
+ 		body{
+ 			padding-top: 20%;
+ 		}
+ 		#para{
+ 			text-align: center;
+ 			padding-left: 5%;
+ 			padding-top: 5%;
+ 			padding-bottom: 5%;
+ 		}
+ 	</style>
+ </head>
+ <body>
+
+  <div id="para">
+ 	<p id="set">
+ 		This is an example which shows how we can change the paragraph color using javascript <br>
+ 	</p>
+ 	<button onclick="setparacolors()"> Click me to change paragraph color using javascript</button>
+ </div>
+
+ 	
+
+ 	<script type="text/javascript">
+ 		function setparacolors(){
+ 			document.getElementById("set").style.backgroundColor = "yellow";
+ 		}
+ 		
+ 	</script>
+ 
+ </body>
+ </html>

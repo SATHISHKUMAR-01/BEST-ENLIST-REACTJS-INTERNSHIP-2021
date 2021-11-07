@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Return first and last name from a form</title>
+	<style type="text/css">
+		body{
+ 			padding-top: 20%;
+ 		}
+ 		#form{
+ 			text-align: center;
+ 			padding-left: 5%;
+ 			padding-top: 5%;
+ 			padding-bottom: 5%;
+ 		}
+	</style>
+</head>
+<body>
+	<div id="form">
+	<form id = "form1" onsubmit="getFormvalue()">
+		First Name : <input type="text" name="fname" value="David">  <br>
+		Last Name : <input type="text" name="lname" value="Beckham">  <br>
+		<input type="submit" value="Submit">
+
+	</form>
+
+	<div id="fname"></div>
+	<div id="lname"></div>
+
+</div>
+	<script>
+		function getFormvalue()
+		{
+			var name=document.getElementById("form1");
+			for (var element=0 ; element < name.length ; element++)
+			{
+				if (name.elements[element].value!='Submit' && element==0)
+				{  
+					document.getElementById("fname").innerHTML = name.elements[element].value;
+				}else if (name.elements[element].value!='Submit' && element==1){
+					document.getElementById("lname").innerHTML = name.elements[element].value;
+				}
+			}
+		}
+	</script>
+
+</body>
+</html>
