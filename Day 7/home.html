@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Training Tracks</title>
+    <style>
+        body{
+            background-color:rgb(108, 108, 218);
+        }
+        #header{
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: red;
+            padding-top: 0.3%;
+            padding-bottom: 5%;    
+        }
+
+        #course{
+            padding-top: 10px;
+        }
+
+         #aws{
+            float:left;
+            padding-left: 80px;
+            padding-right: 50px;
+        }
+
+        #azure{
+            float:left;
+            padding-left: 200px;
+            padding-right: 150px;
+        }
+
+        #gcloud{
+            float:left;
+            padding-left: 180px;
+            padding-right: 120px;
+        }
+
+        #info-aws, #info-azure , #info-gcloud, #enroll,#enroll1,#enroll2{
+            color: blue;
+            background-color: chartreuse;
+            border-radius: 15px;
+            padding-bottom: 3%;
+            padding-top: 3%;
+            padding-right: 5%;
+            padding-left: 5%;   
+        }
+
+        #enrollform{
+            padding-top: 20%;
+            padding-left: 40%;
+         }
+
+        #labels{
+            padding-right:90px;
+            font: 20px sans-serif;
+        }
+
+        #inputbox{
+            padding-left: 90px;
+            width: 5%;
+            height: 2%;
+        }
+
+
+
+        .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body> 
+    <div id = "header">
+        <h1> <b> TRAINING </b> </h1>
+    </div> 
+
+    <aside id = "course">
+
+            <div id = "aws">
+                <button id = "info-aws" onclick="showawsinfo()">  Info </button> <br><br>
+                <a href="aws.html">
+                    <img src="aws.png" alt="Amazon Web Services" width="240px" height="360px"  id="aws-pic">
+                </a> <br><br>
+                <button id="enroll" onclick="showform()">  <a href="#enrollform">Enroll</a>   </button>
+            </div>
+
+
+            <div id = "azure">
+                <button id="info-azure" onclick="showazureinfo()">  Info </button> <br><br>
+                <a href="azure.html">
+                    <img src="azure.png" alt="Microsoft Azure" width="240px" height="360px" id="azure-pic">
+                </a> <br><br>
+                <button id="enroll1" onclick="showform()"> <a href="#enrollform">Enroll</a>  </button>
+            </div>
+
+
+            <div id = "gcloud">
+                <button id="info-gcloud" onclick="showgcloudinfo()">  Info </button> <br><br>
+                <a href="gcloud.html">
+                    <img src="gcloud.jpg" alt="Google Cloud Platform" width="240px" height="360px" id="gcloud-pic">
+                </a> <br><br>
+                <button id="enroll2" onclick="showform()">  <a href="#enrollform">Enroll</a>   </button>
+            </div>
+         
+        </aside>
+
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p id = "set">Its a course on AWS , which gives you a Deep dive into the knowledge of Amazon web Services <br>
+                For More information , Please click on the AWS image.</p>
+            </div>
+          
+          </div>
+          
+
+
+    <article id = "form">
+
+        <div id = "insideform">
+        <form id = "enrollform" action="">
+
+             <h3> Enroll For Your Transformation </h3>
+
+            <label for="FirstName" id="labels"> First Name : </label>
+            <input type="text" id="inputbox">   <br>
+
+            <label for="SecondName" id="labels"> Second Name : </label>
+            <input type="text" id="inputbox">   <br>
+
+            <label for="Emailid" id="labels"> Email Id : </label>
+            <input type="email" id="inputbox">  <br>
+
+            <label for="College Name" id="labels"> College Nane : </label>
+            <input type="text" id="inputbox">   <br>
+
+            <label for="PhoneNumber" id="labels"> Phone Number : </label>
+            <input type="text" id="inputbox">  <br>
+
+            <label for="Course" id="labels">Select your Course  :</label> <br>
+
+            <input type="radio" value="AWS">
+            <label for="aws" id="labels" >Amazon Web Services</label><br>
+            <input type="radio" value="Azure">
+            <label for="azure" id="labels">Microsoft Azure</label><br>
+            <input type="radio" value="Gcloud">
+            <label for="gcloud" id="labels">Google Cloud Platform</label> <br>
+            <button> Submit </button>
+    
+        </form>
+
+    </div>
+
+
+    </article>
+
+    <script>
+
+        var form = document.getElementById("enrollform");
+        form.style.display = "none";
+        function showform(){
+            if(form.style.display === "none"){
+                form.style.display = "block";
+            } 
+        }
+
+        function showawsinfo(){
+            document.getElementById("set").innerHTML=""
+        }
+
+        function showazureinfo(){
+            alert("Its a course on Azure , which gives you a Deep dive into the knowledge of Microsoft Azure .....For More information , Please click on the Azure image.");
+        }
+
+        function showgcloudinfo(){
+            alert("Its a course on google cloud , which gives you a Deep dive into the knowledge of google cloud platform .....For More information , Please click on the cloud image.");
+            
+        }
+
+
+        var modal = document.getElementById("myModal");
+
+
+var btn = document.getElementById("info-aws");
+
+
+var span = document.getElementsByClassName("close")[0];
+
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+var blink1 = document.getElementById("aws-pic");
+var blink2 = document.getElementById("azure-pic");
+var blink3 = document.getElementById("gcloud-pic");
+setInterval(function() {
+        blink1.style.opacity = (blink1.style.opacity == 0 ? 1 : 0);
+      }, 1000);
+      var enroll_blink1 = document.getElementById("enroll1");
+setInterval(function() {
+        blink2.style.opacity = (blink2.style.opacity == 0 ? 1 : 0);
+      }, 1000);
+    
+      var enroll_blink2 = document.getElementById("enroll2");
+setInterval(function() {
+        blink3.style.opacity = (blink3.style.opacity == 0 ? 1 : 0);
+      }, 1000);
+
+
+
+    </script>
+
+    
+
+    
+</body>
+</html>
